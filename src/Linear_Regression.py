@@ -1,8 +1,9 @@
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 import seaborn as sns
 import matplotlib.pyplot as plt
-import numpy as np
+import os
 
 # fill null cells
 def fillna(df, null_cnt):
@@ -46,7 +47,7 @@ def regplot_vs_Price(df, col_name, o):
     plt.show()
 
 # read dataset and split it into training and testing sets
-df = pd.read_csv('house-prices.csv')
+df = pd.read_csv('src/data/house-prices.csv')
 X = df[['SqFt', 'Bedrooms', 'Bathrooms', 'Offers', 'Brick', 'Neighborhood']].copy()
 y = df['Price'].copy()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
